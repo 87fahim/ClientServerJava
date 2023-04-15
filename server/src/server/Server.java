@@ -24,12 +24,13 @@ public class Server {
 				String message = in.readLine();
 				System.out.println("Received message: " + message);
 
-				Scanner scanner = new Scanner(System.in);
-				System.out.print("Enter response: ");
-				String response = scanner.nextLine();
+				try (Scanner scanner = new Scanner(System.in)) {
+					System.out.print("Enter response: ");
+					String response = scanner.nextLine();
 
-				// Send response to client
-				out.println(response);
+					// Send response to client
+					out.println(response);
+				}
 
 				
 			}
